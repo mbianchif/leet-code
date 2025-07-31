@@ -9,7 +9,7 @@ class Solution:
                 if 0 <= ai < n and 0 <= aj < m:
                     yield ai, aj
 
-        def bfs(s):
+        def dfs(s):
             # O(n + m)
             visited = set(s)
 
@@ -37,5 +37,5 @@ class Solution:
             a.append((n - 1, j))
 
         # O(n * m)
-        atlantic = bfs(a)
-        return [list(x) for x in bfs(p) if x in atlantic]
+        atlantic = dfs(a)
+        return [list(x) for x in dfs(p) if x in atlantic]
