@@ -8,15 +8,11 @@ impl Solution {
         // O(nlogn)
         while heap.len() > 1 {
             // O(logn)
-            let Some(one) = heap.pop() else {
-                return 0;
-            };
-
-            // O(logn)
+            let one = heap.pop().unwrap();
             let two = heap.pop().unwrap();
             let leftover = one - two;
 
-            if 0 < leftover {
+            if leftover > 0 {
                 // O(logn)
                 heap.push(leftover);
             }
