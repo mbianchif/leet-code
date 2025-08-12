@@ -10,6 +10,7 @@ int reverse(int x) {
     long res = 0;
     int len = floor(log10(abs(x))) + 1;
 
+    // O(d)
     while (len >= 0) {
         res += (x % 10) * pow(10, --len);
         if (res <= INT_MIN || res >= INT_MAX) {
