@@ -6,12 +6,17 @@ class Solution:
         n, m = len(matrix), len(matrix[0])
         dxs = [(0, 1), (1, 0), (0, -1), (-1, 0)]
 
+        def adjacents(i, j):
+            for di, dj in dxs:
+                ai, aj = i + di, j + dj
+                if 0 <= ai < n and 0 <= aj < m:
+                    yield ai, aj
+
         @cache
         def dp(i, j):
             longest_path = 0
-            for di, dj in dxs:
-                ai, aj = i + di, j + dj
-                if 0 <= ai < n and 0 <= aj < m and matrix[i][j] < matrix[ai][aj]:
+            for ai, aj in adjacents(i, j):
+                if matrix[i][j] < matrix[ai][aj]:
                     longest_path = max(longest_path, dp(ai, aj))
 
             return 1 + longest_path
