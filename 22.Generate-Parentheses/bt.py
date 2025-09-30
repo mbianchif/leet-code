@@ -1,23 +1,22 @@
 class Solution:
-    def generateParenthesis(self, n) -> list[str]:
-        acc = []
+    def generateParenthesis(self, n: int) -> list[str]:
+        nparenthesis = 2 * n
 
-        def bt(open, close):
-            if len(acc) == n << 1:
-                return ["".join(acc)]
+        def bt(solutions, acc, opened):
+            if len(acc) == nparenthesis:
+                solutions.append("".join(acc))
+                return solutions
 
-            res = []
-            if open < n:
+            if opened < n:
                 acc.append("(")
-                res.extend(bt(open + 1, close))
+                bt(solutions, acc, opened + 1)
                 acc.pop()
 
-            if close < open:
+            if len(acc) < 2 * opened:
                 acc.append(")")
-                res.extend(bt(open, close + 1))
+                bt(solutions, acc, opened)
                 acc.pop()
 
-            return res
+            return solutions
 
-        # O(2^n)
-        return bt(0, 0)
+        return bt([], [], 0)
