@@ -19,4 +19,5 @@ class Solution:
 
             return solutions
 
+        # O(2^n)
         return bt([], [], 0)
