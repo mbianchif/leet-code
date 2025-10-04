@@ -5,8 +5,7 @@ impl Solution {
 
         // O(n)
         while l < r {
-            let h = height[l].min(height[r]);
-            let area = h * (r - l) as i32;
+            let area = (r - l) as i32 * height[l].min(height[r]);
             max_area = max_area.max(area);
 
             if height[l] < height[r] {
