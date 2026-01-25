@@ -1,5 +1,3 @@
-struct Solution {}
-
 use std::collections::VecDeque;
 
 impl Solution {
@@ -27,15 +25,3 @@ impl Solution {
         mxs
     }
 }
-
-fn main() {
-    println!("Hello, world!");
-}
-
-/*
-
-    [[1, 4, 2], 3,  5]  4
-    [1, [4, 2,  3], 5]  4
-    [1,  4,[2,  3,  5]] 5
-
-*/

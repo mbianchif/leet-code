@@ -12,8 +12,6 @@ class Solution:
             for a in range(n - k):
                 b = a + k
                 ends = nums[a] * nums[b]
-                dp[a][b] = max(
-                    dp[a][i] + dp[i][b] + nums[i] * ends for i in range(a + 1, b)
-                )
+                dp[a][b] = max(dp[a][i] + dp[i][b] + nums[i] * ends for i in range(a + 1, b))
 
         return dp[0][n - 1]

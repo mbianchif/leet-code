@@ -3,15 +3,14 @@ struct TreeNode {
     struct TreeNode *left;
     struct TreeNode *right;
 };
- 
 
-int maxDepth(struct TreeNode* root) {
+int maxDepth(struct TreeNode *root) {
     if (!root) {
-      return 0;
+        return 0;
     }
 
     // O(n)
-    int l = 1 + maxDepth(root->left);
-    int r = 1 + maxDepth(root->right);
-    return l > r ? l : r;
+    int l = maxDepth(root->left);
+    int r = maxDepth(root->right);
+    return 1 + (l > r ? l : r);
 }

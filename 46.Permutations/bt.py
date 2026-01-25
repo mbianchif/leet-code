@@ -20,4 +20,4 @@ class Solution:
             return ps
 
         # O(n!)
-        return dfs([], [False] * n, [])
+        return dfs([], [], [False] * n)

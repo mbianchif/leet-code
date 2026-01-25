@@ -18,7 +18,6 @@ class Solution:
 
         # O(e)
         while s:
-            print(s, itinerary)
             while g[s[-1]]:
                 s.append(g[s[-1]].pop())
 
